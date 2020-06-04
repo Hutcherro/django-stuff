@@ -11,9 +11,9 @@
     <header class="main-header">
         <h1>Do you have an account?</h1>
         <h2>Log in:</h2>
-        <form action="" id="login">
-            <label>E-mail:</label>
-             <input id="login-email" type="email" >
+        <form action="/user-login/" method="post" id="login">
+            <label for="/user-name/">E-mail:</label>
+             <input name="user-login" id="login-email" type="email" value="{{ current_login }}">
             <label>Password:</label>
              <input id="login-password" type="password">
             <!-- <input id="submit-button" type="submit" value="Submit"> -->
