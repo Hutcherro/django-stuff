@@ -1,0 +1,32 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enter to the shop</title>
+    <link rel="stylesheet" href={% static 'mycode/shop-offer.css' %}>
+</head>
+<body>
+    
+    
+    <!--    {% csrf_token %} -->
+    <!-- {% block body %} -->
+    <article class="item-offer">
+       {% csrf_token %}
+       {% for item in table_list %}
+            <h3>
+                {{ item.name_of_item }}
+            </h3>
+            <p>
+                {{ item.price_of_item }}
+            </p>
+    
+    {% endfor %}
+        
+    </article> 
+       <!-- {% endblock %} --> 
+    
+
+</body>
+</html>

@@ -4,9 +4,12 @@ from django.urls import reverse
 #from django.template import loader
 from django.views import generic
 from django.utils import timezone
-from django.views.decorators.http import require_http_methods
+
 
 from .models import Question, Choice
+
+def index(request):
+	return render(request, 'polls/login.html')
 
 class IndexView(generic.ListView):
 	template_name = 'polls/index.html'
@@ -25,7 +28,7 @@ class ResultView(generic.DetailView):
 	model = Question
 	template_name = 'polls/result.html'
 
-@require_http_methods(["GET", "POST"])
+
 def vote(request, question_id):
 	question = get_object_or_404(Question, pk=question_id)
 	try:
@@ -39,7 +42,7 @@ def vote(request, question_id):
 		return HttpResponseRedirect(reverse('polls:result', args=(question.id,)))
 
 
-""" 
+""" old code
 def index(request):
 	latest_question_list = Question.objects.order_by('-pub_date')[:5]
 	#output = ', '.join([q.question_text for q in latest_question_list])
