@@ -19,5 +19,5 @@ class newItem(models.Model):
     #    return pub_date
     #def timeOfAdd(self):
     #    return pub_date
-
+    
 # Create your models here.

@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from . import views
+from accounts.views import login_view
 
 urlpatterns = [
-	path('', include('polls.urls')),
+	path('login/', include('accounts.urls')),
     path('shop/', include('mycode.urls')),
+    path('polls/', include('polls.urls')),
+    path('', views.home),
     path('admin/', admin.site.urls),
-    #path('polls/', include('polls.urls')),
+    path('account/login/', login_view), #accounts/login/?next=/login/
 ]

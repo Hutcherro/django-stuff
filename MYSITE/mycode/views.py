@@ -18,4 +18,4 @@ class ShopView(TemplateView):
 		table_list = newItem.objects.all()
 		context={'table_list': table_list}
 		return render(request, self.template_name, context)
-	#return 
+		 
