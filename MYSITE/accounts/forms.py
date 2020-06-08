@@ -22,7 +22,7 @@ class UserLogin(forms.Form):
         return super(UserLogin, self).clean(*args, **kwargs)
 
 class UserRegister(forms.ModelForm):
-    email = forms.CharField(label='Email Address')
+    email = forms.EmailField(label='Email Address')
     password = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
@@ -38,6 +38,7 @@ class UserRegister(forms.ModelForm):
         email = self.cleaned_data('email')
         email_qs = User.objects.filter(email=email)
         if email_qs.exists():
-            raise forms.ValidationError('is being used')                
+            raise forms.ValidationError('is being used')   
+        return email             
                 
                 

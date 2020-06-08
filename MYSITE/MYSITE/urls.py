@@ -19,10 +19,13 @@ from . import views
 from accounts.views import login_view
 
 urlpatterns = [
-	path('login/', include('accounts.urls')),
+	path('', include('accounts.urls')),
     path('shop/', include('mycode.urls')),
     path('polls/', include('polls.urls')),
-    path('', views.home),
+    path('login/', views.home),
     path('admin/', admin.site.urls),
-    path('account/login/', login_view), #accounts/login/?next=/login/
+    path('accounts/login/', login_view), #accounts/login/?next=/login/
 ]
+#old 
+# path('', views.home),
+# path('login/', include('accounts.urls')),
